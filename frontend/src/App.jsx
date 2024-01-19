@@ -10,12 +10,12 @@ function App() {
 
   return (
     <>
-      <Home/>
-      {/* <Shop/> */}
-      {/* <Detail/> */}
-      {/* <Cart/> */}
-      {/* <Checkout/> */}
-      {/* <Contact/> */}
+      {/* <Home /> */}
+      <Shop />
+      {/* <Detail /> */}
+      {/* <Cart /> */}
+      {/* <Checkout /> */}
+      {/* <Contact /> */}
     </>
   )
 }
