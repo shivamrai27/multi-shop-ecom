@@ -5,9 +5,11 @@ import prodctRoutes from './routes/productRoutes.js'
 import { connectDb } from './config/config.js'
 import { errorMiddleware } from './middleware/errorMiddleware.js'
 import 'dotenv/config'
+import cors from 'cors';
 connectDb();
 
 app.use(bodyParser.json());
+app.use(cors())
 app.use('/api', prodctRoutes)
 
 
