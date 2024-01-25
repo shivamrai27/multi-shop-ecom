@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import * as cloudinary from 'cloudinary';
 import 'dotenv/config'
 export const connectDb = async () => {
     try {
@@ -10,4 +11,13 @@ export const connectDb = async () => {
     } catch (error) {
         console.log(error.message);
     }
-} 
+}
+
+
+export const cloudinaryConfig = () => {
+    cloudinary.config({
+        cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+        api_key: process.env.CLOUDINARY_API_KEY,
+        api_secret: process.env.CLOUDINARY_API_SECRET
+    });
+}

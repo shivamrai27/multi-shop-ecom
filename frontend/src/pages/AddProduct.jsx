@@ -6,8 +6,11 @@ import Topbar from '../components/Topbar'
 import Navbar from '../components/Navbar'
 import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footer'
+import { useAddNewProductMutation } from '../redux/features/product/productApi';
 
 const AddProduct = () => {
+
+    const [addProduct, { isLoading }] = useAddNewProductMutation();
 
     const { handleSubmit, handleChange, handleBlur, errors, values, touched, setFieldValue } = useFormik({
         initialValues: {
@@ -25,11 +28,9 @@ const AddProduct = () => {
             image: Yup.string().required('Required'),
             price: Yup.number().max(100000, 'Price Must be 100000 or less').required('Required'),
             discount: Yup.number().max(80, 'Discount Must be 80% or less').required('Required'),
-
-
         }),
         onSubmit: values => {
-            console.log(values);
+            addProduct(values).unwrap();
         },
     });
 

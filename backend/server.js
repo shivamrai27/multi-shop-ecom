@@ -2,11 +2,13 @@ import express from 'express';
 import bodyParser from 'body-parser';
 const app = express();
 import prodctRoutes from './routes/productRoutes.js'
-import { connectDb } from './config/config.js'
+import { connectDb, cloudinaryConfig } from './config/config.js'
 import { errorMiddleware } from './middleware/errorMiddleware.js'
 import 'dotenv/config'
 import cors from 'cors';
+
 connectDb();
+cloudinaryConfig();
 
 app.use(bodyParser.json());
 app.use(cors())

@@ -1,4 +1,5 @@
 import Product from '../models/productSchema.js';
+import * as cloudinary from 'cloudinary';
 export const getAllProducts = async function (req, res) {
 
     const products = await Product.find({})
@@ -37,11 +38,27 @@ export const getProductById = async function (req, res, next) {
 
 export const createNewProduct = async function (req, res, next) {
     const newProduct = req.body;
+
+    cloudinary.v2.uploader.upload(newProduct.image, { folder: 'multishop' }, (error, result) => {
+        let secure_url = result.secure_url;
+        let public_id = result.public_id;
+
+        //our schema of image property take an array of object here object is build and below converted into array
+        let img = {
+            secure_url,
+            public_id
+        }
+        newProduct.image = [img]
+    })
+    // console.log(newProduct);
+
+
     try {
         const r = await Product.create(newProduct);
-        res.json({
-            product: r
-        });
+        console.log(r);
+        // res.json({
+        //     product: r
+        // });
     } catch (error) {
         // res.json(error);
         next(error);
