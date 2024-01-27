@@ -39,6 +39,7 @@ export const getProductById = async function (req, res, next) {
 export const createNewProduct = async function (req, res, next) {
     const newProduct = req.body;
 
+
     cloudinary.v2.uploader.upload(newProduct.image, { folder: 'multishop' }, (error, result) => {
         let secure_url = result.secure_url;
         let public_id = result.public_id;

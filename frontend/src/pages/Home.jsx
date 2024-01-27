@@ -12,16 +12,15 @@ import Footer from '../components/Footer'
 function Home() {
   return (
     <>
-        <Topbar/>
-        <Navbar/>
-        <Carousel/>
-        <Features/>
-        <Categories/>
-        <Products/>
-        <Offer/>
-        <Vendor/>
-        <Footer/>
-        <a href="#" className="btn btn-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
+
+      <Carousel />
+      <Features />
+      <Categories />
+      <Products />
+      <Offer />
+      <Vendor />
+
+      <a href="#" className="btn btn-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
     </>
   )
 }

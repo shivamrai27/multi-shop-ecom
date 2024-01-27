@@ -8,11 +8,10 @@ import Footer from '../components/Footer'
 function Shop() {
   return (
     <>
-        <Topbar/>
-        <Navbar/>
-        <Breadcrumb/>
-        <ShopList/>
-        <Footer/>
+
+      <Breadcrumb />
+      <ShopList />
+
     </>
   )
 }
