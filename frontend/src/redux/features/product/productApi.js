@@ -15,7 +15,7 @@ export const productApi = createApi({
         // Mutation start {we can add multiple end point after one an other }
         addNewProduct: builder.mutation({
             query: (data) => ({
-                url: `new/product`,
+                url: `/new/product`,
                 method: 'POST',
                 body: data,
             })

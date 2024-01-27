@@ -27,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="cart" element={<Cart />} />
       <Route path="contact" element={<Contact />} />
       <Route path="checkout" element={<Checkout />} />
+      <Route path="add" element={<AddProduct />} />
 
       {/* <Route element={<RequireAuth />}>
         <Route path="checkout" element={<Checkout />} />

@@ -40,7 +40,7 @@ export const createNewProduct = async function (req, res, next) {
     const newProduct = req.body;
 
 
-    cloudinary.v2.uploader.upload(newProduct.image, { folder: 'multishop' }, (error, result) => {
+    await cloudinary.v2.uploader.upload(newProduct.image, { folder: 'multishop' }, (error, result) => {
         let secure_url = result.secure_url;
         let public_id = result.public_id;
 
@@ -50,16 +50,15 @@ export const createNewProduct = async function (req, res, next) {
             public_id
         }
         newProduct.image = [img]
+        console.log(newProduct);
     })
-    // console.log(newProduct);
-
 
     try {
-        const r = await Product.create(newProduct);
-        console.log(r);
-        // res.json({
-        //     product: r
-        // });
+        const r = Product.create(newProduct);
+        // console.log(r);
+        res.json({
+            newProduct
+        });
     } catch (error) {
         // res.json(error);
         next(error);

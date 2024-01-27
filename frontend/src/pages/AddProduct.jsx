@@ -36,8 +36,6 @@ const AddProduct = () => {
 
     return (
         <>
-            <Topbar />
-            <Navbar />
             <Breadcrumb />
 
             <div className="container-fluid">
@@ -109,7 +107,7 @@ const AddProduct = () => {
                 </div>
             </div>
 
-            <Footer />
+
         </>
     )
 }
