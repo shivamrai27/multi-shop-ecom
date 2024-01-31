@@ -1,7 +1,11 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 const app = express();
+
+import bodyParser from 'body-parser';
+
 import prodctRoutes from './routes/productRoutes.js'
+import authRoutes from './routes/authRoutes.js'
+
 import { connectDb, cloudinaryConfig } from './config/config.js'
 import { errorMiddleware } from './middleware/errorMiddleware.js'
 import 'dotenv/config'
@@ -11,9 +15,9 @@ connectDb();
 cloudinaryConfig();
 
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
-app.use('/api', prodctRoutes)
+app.use(cors());
 
+app.use('/api', prodctRoutes, authRoutes)
 
 app.use(errorMiddleware)
 app.listen(process.env.SERVER_PORT, (c) => {
