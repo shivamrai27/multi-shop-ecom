@@ -4,7 +4,7 @@ export const getAllProducts = async function (req, res) {
 
     const products = await Product.find({})
 
-    res.json(products);
+    // res.json(products);
     console.log(products);
 }
 

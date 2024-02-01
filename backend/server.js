@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 
 import bodyParser from 'body-parser';
-
+import cookieParser from 'cookie-parser';
 import prodctRoutes from './routes/productRoutes.js'
 import authRoutes from './routes/authRoutes.js'
 
@@ -15,6 +15,7 @@ connectDb();
 cloudinaryConfig();
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(cors());
 
 app.use('/api', prodctRoutes, authRoutes)
