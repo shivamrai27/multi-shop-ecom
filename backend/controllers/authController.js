@@ -1,6 +1,8 @@
 import User from '../models/userSchema.js'
+import 'dotenv/config'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { response } from 'express';
 
 export const registerNewUser = async (req, res, next) => {
     try {
@@ -43,24 +45,22 @@ export const loginUser = async (req, res, next) => {
         // Here we sign() our payload(data like email and password) with some random secrect key and default SH256 algorithm is used to create secure token
         // which is stored in token variable 
         // * payload + random secrect key == some random hased jwt token is generated which contain data
-        const token = jwt.sign({ user: user }, "3zD_MCvoUKfXEIWZ9uoAdzgih6Rv7kr0_ti19cLadruAm46dutwEUYoLmRawIPpPJoqYYX2ysqPzmnGU6BnlpVnS1LbuxJTu9zvm5uSAG7P8ccm1l4sOso6EFf_MNoBtXPAYw1sRaMsLdTJhfzpgMoz9iwNwDL5JC_1Tzh3dxUM")
+        const token = await jwt.sign({ payload: user }, process.env.JWT_SECRET, { expiresIn: 1 * 60 * 60 });
 
         // * the main advantage of storing token in cookie is whenever a new request is made on same server the token is also 
         // * transferred or share to server automatically and we can secure our routes
 
         //Here we create a cookie() with token param and a specific expiry which is stored in user browser for first time and whenever
         //user hit any end point we check it is authorized user or not for doing any CRUD operations
-        res.cookie("cookie", token, {
-            expires: new Date(Date.now() + 360000),
-            secure: true,
-            httpOnly: true
-        }).json({ token, user });
+        res.cookie("token", token, { expires: new Date(Date.now() + 360000), httpOnly: true }).status(200).json({ user });
 
+        res.json(email, password);
     } catch (error) {
         next(error);
     }
 
 }
+
 export const logoutUser = (req, res, next) => {
     res.json({ message: "user register" });
 }

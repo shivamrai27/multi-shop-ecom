@@ -4,8 +4,8 @@ export const getAllProducts = async function (req, res) {
 
     const products = await Product.find({})
 
-    // res.json(products);
-    console.log(products);
+    res.json(products);
+    // console.log(products);
 }
 
 export const getProductById = async function (req, res, next) {
