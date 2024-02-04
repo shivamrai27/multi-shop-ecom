@@ -2,7 +2,6 @@ import User from '../models/userSchema.js'
 import 'dotenv/config'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { response } from 'express';
 
 export const registerNewUser = async (req, res, next) => {
     try {
@@ -40,7 +39,7 @@ export const loginUser = async (req, res, next) => {
             return next(new Error("Invalid password"));
         }
 
-        //JWT Authentication Autherization -> first step is to generate jwt token from payload and secret key
+        //JWT Authentication Autherization -> first step is to generate jwt token with combo of payload and secret key
 
         // Here we sign() our payload(data like email and password) with some random secrect key and default SH256 algorithm is used to create secure token
         // which is stored in token variable 

@@ -1,13 +1,13 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-// import { useRegisterUserMutation } from '../redux/features/auth/authApi';
+import { useRegisterUserMutation } from '../redux/features/auth/authApi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
 
-    // const [registerUser, { isLoading, error, data }] = useRegisterUserMutation();
+    const [registerUser, { isLoading, error, data }] = useRegisterUserMutation();
 
     const { handleSubmit, handleChange, handleBlur, errors, values, touched, setFieldValue } = useFormik({
         initialValues: {
@@ -25,6 +25,8 @@ function Register() {
             cPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
         }),
         onSubmit: async values => {
+            // after on clicking submit button we are deleting cPassword property just because we dont need to store this in db and and 
+            //our schema must be matched to what data we send from client side and password matching is done on fronend sideby formik
             delete values.cPassword;
             console.log(values);
             const res = await registerUser(values).unwrap();
