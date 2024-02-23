@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 function Topbar() {
+    const { user, token } = useSelector(state => state.auth)
+
     return (
         <>
             <div className="container-fluid">
@@ -15,13 +18,28 @@ function Topbar() {
                     </div>
                     <div className="col-lg-6 text-center text-lg-right">
                         <div className="d-inline-flex align-items-center">
-                            <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
-                                <div className="dropdown-menu dropdown-menu-right">
-                                    <Link className="dropdown-item" to="/auth/login">Sign in</Link>
-                                    <Link className="dropdown-item" to="/auth/register">Sign up</Link>
-                                </div>
-                            </div>
+
+                            {
+                                user && token ? <>
+                                    <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Hi, {user.email}</button>
+                                    <div className="dropdown-menu dropdown-menu-right">
+                                        <Link className="dropdown-item" to="/auth/profile">Profile</Link>
+                                        <Link className="dropdown-item" to="/auth/login">Logout</Link>
+                                    </div>
+                                </> : <>
+                                    <div className="btn-group">
+                                        <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                                        <div className="dropdown-menu dropdown-menu-right">
+                                            <Link className="dropdown-item" to="/auth/login">Sign in</Link>
+                                            <Link className="dropdown-item" to="/auth/register">Sign up</Link>
+                                        </div>
+
+                                    </div>
+                                </>
+                            }
+
+
+
                             <div className="btn-group mx-2">
                                 <button type="button" className="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
                                 <div className="dropdown-menu dropdown-menu-right">

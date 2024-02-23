@@ -1,21 +1,30 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { productApi } from './features/product/productApi'
 import { authApi } from './features/auth/authApi'
+import authSlice from './features/auth/authSlice'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+
+
+const persistConfig = {
+    key: 'user',
+    storage,
+}
+
+
+const rootReducer = combineReducers({
+    auth: authSlice,
+    [productApi.reducerPath]: productApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: {
-        // Add the generated reducer as a specific top-level slice
-        [productApi.reducerPath]: productApi.reducer,
-        [authApi.reducerPath]: authApi.reducer,
-
-    },
-
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat([productApi.middleware, authApi.middleware]),
-})
+});
 
-// optional, but required for refetchOnFocus/refetchOnReconnect behaviors
-// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
-// setupListeners(store.dispatch)
+export const persistor = persistStore(store);

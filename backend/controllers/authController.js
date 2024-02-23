@@ -51,7 +51,7 @@ export const loginUser = async (req, res, next) => {
 
         //Here we create a cookie() with token param and a specific expiry which is stored in user browser for first time and whenever
         //user hit any end point we check it is authorized user or not for doing any CRUD operations
-        res.cookie("token", token, { expires: new Date(Date.now() + 360000), httpOnly: true }).status(200).json({ user });
+        res.cookie("token", token, { expires: new Date(Date.now() + 360000), httpOnly: true }).status(200).json({ user, token });
 
         res.json(email, password);
     } catch (error) {

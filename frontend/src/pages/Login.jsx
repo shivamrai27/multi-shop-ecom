@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-// import { useLoginUserMutation } from '../redux/features/auth/authApi';
-// import { setUserInfo } from '../redux/features/auth/authSlice';
+import { useLoginUserMutation } from '../redux/features/auth/authApi';
+import { setUserInfo } from '../redux/features/auth/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function Login() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // const [userLogin, { isLoading, error, data }] = useLoginUserMutation();
+    const [userLogin, { isLoading, error, data }] = useLoginUserMutation();
 
     const { handleSubmit, handleChange, handleBlur, errors, values, touched, setFieldValue } = useFormik({
         initialValues: {
