@@ -53,7 +53,7 @@ export const loginUser = async (req, res, next) => {
         //user hit any end point we check it is authorized user or not for doing any CRUD operations
         res.cookie("token", token, { expires: new Date(Date.now() + 360000), httpOnly: true }).status(200).json({ user, token });
 
-        res.json(email, password);
+        // res.json(email, password);
     } catch (error) {
         next(error);
     }
@@ -61,5 +61,7 @@ export const loginUser = async (req, res, next) => {
 }
 
 export const logoutUser = (req, res, next) => {
-    res.json({ message: "user register" });
+    res.cookie("token", null, { expires: new Date(Date.now()) }).json({
+        message: 'Logged out'
+    });
 }
