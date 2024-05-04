@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useLoginUserMutation } from '../redux/features/auth/authApi';
 import { setUserInfo } from '../redux/features/auth/authSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
 
@@ -13,7 +13,7 @@ function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [userLogin, { isLoading, error, data }] = useLoginUserMutation();
-
+    const { user, token } = useSelector(state => state.auth)
     const { handleSubmit, handleChange, handleBlur, errors, values, touched, setFieldValue } = useFormik({
         initialValues: {
             email: '',
@@ -29,7 +29,9 @@ function Login() {
             navigate("/");
         },
     });
-
+    if (user && token) {
+        return navigate("/");
+    }
     return (
         <div className="container-fluid">
             <h2 className="section-title position-relative text-uppercase mx-xl-5 mb-4"><span className="bg-secondary pr-3">Login</span></h2>

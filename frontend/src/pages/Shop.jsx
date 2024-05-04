@@ -8,10 +8,8 @@ import Footer from '../components/Footer'
 function Shop() {
   return (
     <>
-
-      <Breadcrumb />
-      <ShopList />
-
+        <Breadcrumb/>
+        <ShopList/>
     </>
   )
 }

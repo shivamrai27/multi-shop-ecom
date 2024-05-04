@@ -5,14 +5,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 function RootLayout() {
-    return (
-        <>
-            <Topbar />
-            <Navbar />
-            <Outlet />
-            <Footer />
-        </>
-    )
+  return (
+    <>
+        <Topbar/>
+        <Navbar/>
+            <Outlet/>
+        <Footer/>
+    </>
+  )
 }
 
 export default RootLayout

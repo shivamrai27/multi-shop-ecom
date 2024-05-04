@@ -25,8 +25,6 @@ function Register() {
             cPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
         }),
         onSubmit: async values => {
-            // after on clicking submit button we are deleting cPassword property just because we dont need to store this in db and and 
-            //our schema must be matched to what data we send from client side and password matching is done on fronend sideby formik
             delete values.cPassword;
             console.log(values);
             const res = await registerUser(values).unwrap();
@@ -39,10 +37,9 @@ function Register() {
     });
 
 
-
-    // if (error) {
-    //     return <h1>{error.message || "Something went wrong"}</h1>
-    // }
+    if (error) {
+        return <h1>{error.message || "Something went wrong"}</h1>
+    }
 
 
     return (
@@ -79,8 +76,7 @@ function Register() {
                                 <p className="help-block text-danger">{errors.cPassword && touched.cPassword ? errors.cPassword : null}</p>
                             </div>
                             <div>
-                                {/* <button className="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton" disabled={isLoading}>{isLoading ? "Loading..." : "Create Account"}</button> */}
-                                <button className="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton" >Create Account</button>
+                                <button className="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton" disabled={isLoading}>{isLoading ? "Loading..." : "Create Account"}</button>
                             </div>
                         </form>
                         <ToastContainer />
@@ -98,6 +94,5 @@ function Register() {
         </div>
     )
 }
-
 
 export default Register
