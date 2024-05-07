@@ -31,7 +31,7 @@ export const imageUploading = async ({ image, folder }) => {
     fs.writeFileSync(filePath, imageData, { encoding: 'base64' });
 
     // Full URL to the uploaded image
-    const fullUrl = ` ${uri}${fileName}`;
+    const fullUrl = `${uri}${fileName}`;
 
     return fullUrl;
 };
