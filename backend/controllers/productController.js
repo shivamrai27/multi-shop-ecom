@@ -1,8 +1,8 @@
 import Product from '../models/productSchema.js'
-import * as cloudinary from 'cloudinary'
+import Category from '../models/category.schema.js'
+
 import path from 'path';
-const __dirname = path.resolve();
-import fs from 'fs';
+import { imageUploading } from '../utils/utils.js'
 
 export const getAllProducts = async function (req, res, next) {
 
@@ -28,41 +28,30 @@ export const getProductById = async function (req, res, next) {
 
 export const createNewProduct = async function (req, res, next) {
     const newProduct = req.body;
-    try {
-        const encoded = newProduct.image;
-        const base64ToArray = encoded.split(";base64,");
-        const prefix = base64ToArray[0];
-        const extension = prefix.replace(/^data:image\//, '');
 
-        if (extension === 'jpeg' || extension === 'jpg' || extension === 'png') {
+    const imageUrl = await imageUploading({
+        folder: 'products',
+        image: newProduct.image,
 
+    })
 
-            const imageData = base64ToArray[1];
-            const fileName = (new Date().getTime() / 1000 | 0) + '.' + extension;
-            const imagePath = path.join(__dirname, './public/uploads/') + fileName;  //---/upload/32658921_abc.jpg
+    newProduct.image = imageUrl;
 
-            const filePath = path.resolve(imagePath);
-            newProduct.image = filePath
-            fs.writeFileSync(filePath, imageData, { encoding: 'base64' })
-            if (await Product.create(newProduct)) {
-                res.json({
-                    success: true,
-                    message: "Product has been created"
-                })
-            } else {
-                return next(new Error("Something went wrong"));
-            }
+    const product = await Product.create(newProduct);
+    const categoryId = product.category.toString()
+    const productId = product._id.toString()
 
-        }
-        else {
-            return next(new Error("The image is not valid, please upload jpg, png or jpeg"));
-        }
+    const category = await Category.findById(categoryId);
+    const newProducts = [...category.products, productId.toString()];
+    category.products = newProducts;
+    const updatedCat = await Category.findByIdAndUpdate(categoryId, category)
+
+    if (product) {
+        res.json({
+            message: 'Product has been created',
+            success: true
+        })
     }
-    catch (e) {
-        return next(new Error(e.message));
-    }
-
-
 
 }
 
