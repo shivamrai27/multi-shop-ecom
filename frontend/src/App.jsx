@@ -1,7 +1,6 @@
-import { Fragment } from 'react'
 import './App.css'
 import RequireAuth from './layouts/RequireAuth'
-import RootLayout from './layouts/Rootlayout'
+// import RootLayout from './layouts/Rootlayout'
 import AddProduct from './pages/AddProduct'
 import AddCategory from './pages/AddCategory'
 import Cart from './pages/Cart'
@@ -29,7 +28,7 @@ import Dashboard from './pages/Dashboard'
 import Payment from './components/Payment';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripeApiKey = loadStripe('pk_test_51JXUPNLs3WLhYCTdb6263j1MdZgKdGAIcneTvUokHLpJl4d5dsVdRQ5AxyIKdnAeI2vA8pPOddH5s5rFkZ2x78ZS008FJnKsVC');
+const stripeApiKey = loadStripe('sk_test_51PEO2QSCx8I0w5f6SWbor5vqsBzc7d7gJjdOxFibrCtUVkIk5sBYsmPHzuZcmRlSA7kPQOLQNfAWoRvB88O0o4gQ00tAh9yH3D');
 
 
 const router = createBrowserRouter(
