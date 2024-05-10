@@ -1,6 +1,6 @@
 import './App.css'
 import RequireAuth from './layouts/RequireAuth'
-// import RootLayout from './layouts/Rootlayout'
+import RootLayout from './layouts/Rootlayout'
 import AddProduct from './pages/AddProduct'
 import AddCategory from './pages/AddCategory'
 import Cart from './pages/Cart'
