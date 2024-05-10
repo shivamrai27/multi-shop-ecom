@@ -1,13 +1,13 @@
 {
-  "name": "e-commerce",
+  "name": "shop-fever",
   "version": "1.0.0",
-  "description": "A complete backend for e-commerce",
+  "description": "Complete backend for shop fever",
   "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
-  "author": "Yasir & Team",
+  "author": "Shivam Rai",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.3",
     "node-fetch": "^3.3.2",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "stripe": "^15.5.0"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "multi-shop",
+  "name": "shop-fever",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
+    "@stripe/react-stripe-js": "^2.7.1",
+    "@stripe/stripe-js": "^3.4.0",
+    "axios": "^1.6.8",
     "formik": "^2.4.5",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",

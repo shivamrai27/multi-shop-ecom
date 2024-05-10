@@ -2,9 +2,12 @@ import React from 'react'
 import Breadcrumb from '../components/Breadcrumb';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 function Checkout() {
+
+    const navigate = useNavigate()
     const { handleChange, handleBlur, handleSubmit, touched, values, errors } = useFormik({
         initialValues: {
             fname: '',
@@ -40,6 +43,10 @@ function Checkout() {
     let subTotal = 0;
     for (let c in cart) {
         subTotal += cart[c].price * cart[c].quantity;
+    }
+
+    const navigateToPayment = () => {
+        navigate('/payment')
     }
     return (
         <>
@@ -85,9 +92,9 @@ function Checkout() {
                                     <div className="col-md-6 form-group">
                                         <label>Country</label>
                                         <select className="custom-select" name="country" value={values.country} onChange={handleChange} onBlur={handleBlur}>
-                                            <option value={'Pak'}>India</option>
-                                            <option value={'US'}>United States</option>
-                                            <option value={'AFG'}>England</option>
+                                            <option value={'IND'}>India</option>
+                                            <option value={'US'}>USA</option>
+                                            <option value={'UK'}>UK</option>
                                         </select>
                                         {touched.country && errors.country ? (<div className='text-danger'>{errors.country}</div>) : null}
                                     </div>
@@ -157,7 +164,7 @@ function Checkout() {
                                             <label className="custom-control-label" htmlFor="banktransfer">Cash On Delivery</label>
                                         </div>
                                     </div>
-                                    <button type='submit' className="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
+                                    <button type='submit' className="btn btn-block btn-primary font-weight-bold py-3" onClick={navigateToPayment}>Place Order</button>
                                 </div>
                             </div>
                         </div>
