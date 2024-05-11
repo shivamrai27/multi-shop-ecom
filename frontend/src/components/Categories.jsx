@@ -20,7 +20,7 @@ function Categories() {
                                 <a className="text-decoration-none" href="">
                                     <div className="cat-item d-flex align-items-center mb-4">
                                         <div className="overflow-hidden" style={{ width: '100px', height: '100px' }}>
-                                            <img className="img-fluid" src={`http://localhost:8000/static/uploads/category/${category.image}`} alt="" />
+                                            <img className="img-fluid" src={`https://shopfever-api.vercel.app/static/uploads/category/${category.image}`} alt="" />
                                         </div>
                                         <div className="flex-fill pl-3">
                                             <h6>{category.title}</h6>
