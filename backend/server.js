@@ -20,7 +20,7 @@ cloudinaryConfig();
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cookieParser());
 
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
+app.use(cors({ credentials: true, origin: 'https://shopfever-shivam-rais-projects-68771c96.vercel.app' }));
 
 app.use('/static', express.static('public')); //to serve the static contents
 app.use('/api', prodctRoutes, authRoutes, categoryRoutes, paymentRoutes)

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const paymentApi = createApi({
     reducerPath: 'paymentApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://shopfever-api.vercel.app/api/',
+        baseUrl: 'https://shopfever-api.vercel.app/api',
         credentials: 'include'
     }),
     endpoints: (builder) => ({
