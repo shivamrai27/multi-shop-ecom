@@ -1,4 +1,4 @@
-## ShopFever a Ecommerce web app with strapi payment integration
+## ShopFever an E-commerce web app with stripe payment integration
 
 
 ### Signup Page
@@ -10,13 +10,45 @@
 ### Landing Page
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/landing.png)
 
+### Footer
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/footer.png)
+
+### Shop Section Page
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/static%20shop%20section.png)
+
+### Dashboard Page
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/dashboard.png)
+
+### Add New Category
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/new%20category%20form.png)
+
+### Add New Product
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/new%20product%20form.png)
 [Live Demo Link]()
+
+### Featured Products
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/featured%20.png)
+[Live Demo Link]()
+
+### Description Page
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/description.png)
+[Live Demo Link]()
+
+### Cart Page
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/cart.png)
+[Live Demo Link]()
+
+### Checkout Page
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/checkout.png)
+
+### Strapi Payment Page
+![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/stripe.png)
 
 Some Features:
 
 -   🌟 Tech stack: MERN + Formik & Yup + Redux + JWT
--   🎃 Seprate categories for product can be created with image
--   👾 Every routes are protected
+-   🎃 Separate categories for products can be created with image
+-   👾 Every route are protected
 -   🚀 Dashboard for admin is available
 -   👌 Global state management with Redux
 -   🐞 Strapi payment is integrated
