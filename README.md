@@ -1,4 +1,4 @@
-## ShopFever an E-commerce web app with stripe payment integration
+## ShopFever an E-commerce web app with strapi payment integration
 
 
 ### Signup Page
@@ -24,19 +24,19 @@
 
 ### Add New Product
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/new%20product%20form.png)
-[Live Demo Link]()
+
 
 ### Featured Products
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/featured%20.png)
-[Live Demo Link]()
+
 
 ### Description Page
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/description.png)
-[Live Demo Link]()
+
 
 ### Cart Page
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/cart.png)
-[Live Demo Link]()
+
 
 ### Checkout Page
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/checkout.png)
