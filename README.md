@@ -1,6 +1,14 @@
 ## ShopFever an E-commerce web app with strapi payment integration
 
+Some Features:
 
+-   🌟 Tech stack: MERN + Formik & Yup + Redux + JWT
+-   🎃 Separate categories for products can be created with image
+-   👾 Every route are protected
+-   🚀 Dashboard for admin is available
+-   👌 Global state management with Redux
+-   🐞 Strapi payment is integrated
+  
 ### Signup Page
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/signup%20.png)
 
@@ -43,15 +51,6 @@
 
 ### Strapi Payment Page
 ![Demo App](https://github.com/shivamrai27/shopfever/blob/master/readme_ss/stripe.png)
-
-Some Features:
-
--   🌟 Tech stack: MERN + Formik & Yup + Redux + JWT
--   🎃 Separate categories for products can be created with image
--   👾 Every route are protected
--   🚀 Dashboard for admin is available
--   👌 Global state management with Redux
--   🐞 Strapi payment is integrated
 
 
 ### Setup .env file
